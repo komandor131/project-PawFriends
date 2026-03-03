@@ -1,0 +1,139 @@
+/* Section */
+
+
+.hero-section {
+    padding: 64px 20px;
+    min-height: 544px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+
+    position: relative;
+
+
+    background-image: url("../img/images/cat-dog-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+@media (min-resolution: 192dpi) {
+    .hero-section {
+        background-image:
+            url("../img/images/cat-dog@2x.jpg");
+    }
+}
+
+
+@media (min-width: 768px) {
+    .hero-section {
+        padding: 64px 32px;
+        min-height: 425px;
+        background-position: center;
+    }
+
+
+    .hero-container {
+        max-width: 704px;
+    }
+}
+
+
+@media (min-width: 768px) and (min-resolution: 192dpi) {
+    .hero-section {
+        background-image:
+            url("../img/images/cat-dog@2x.jpg");
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .hero-section {
+        padding: 128px 64px;
+        min-height: 487px;
+        background-position: center;
+    }
+
+
+    .hero-container {
+        max-width: 1312px;
+    }
+}
+
+
+@media (min-width: 1440px) and (min-resolution: 192dpi) {
+    .hero-section {
+        background-image:
+            url("../img/images/cat-dog@2x.jpg");
+    }
+}
+
+
+.hero-container {
+    width: 100%;
+    max-width: 335px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+
+}
+
+
+.hero-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #fff;
+    font-family: "Open Sans",
+        sans-serif;
+    padding-bottom: 24px;
+}
+
+
+.hero-p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    font-family: "IBM Plex Sans",
+        sans-serif;
+    max-width: 335px;
+    padding-bottom: 32px;
+}
+
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+
+    width: 171px;
+    height: 45px;
+    border-radius: 8px;
+    padding: 6px 12px;
+
+
+    border: 1px solid #88765c;
+    background: #88765c;
+
+
+    font-weight: 400;
+    font-size: 14px;
+
+
+    line-height: 1.5;
+    color: #fff;
+
+
+    font-family: "IBM Plex Sans",
+        sans-serif;
+    ;
+}
