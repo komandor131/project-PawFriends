@@ -1,0 +1,64 @@
+<div class="animal-modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <button
+      class="modal-close-btn"
+      id="closeModal"
+      aria-label="Закрити модальне вікно"
+    >
+      <svg width="24" height="24">
+        <use href="./img/icon/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <!-- <div class="modal-image-thumb">
+      <img
+        src="${animal.image}"
+        alt="Фото ${animal.name}"
+        class="animal-image"
+      />
+    </div> -->
+    <div class="modal-content">
+      <div class="modal-image-thumb">
+        <img
+          src="https://ftp.goit.study/img/paw-hut/667ad1b8e4b01a2b3c4d5e01.webp"
+          alt="Фото ${animal.name}"
+          class="animal-image"
+        />
+      </div>
+
+      <div class="modal-content-wrapper">
+        <div class="modal-header">
+          <p class="species">${animal.species}</p>
+          <h2 class="name" id="petName">${animal.name}</h2>
+          <div class="details-row">
+            <span class="age">${animal.age}</span>
+            <span class="gender">${animal.gender}</span>
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <ul class="modal-info-list">
+            <li class="info-item">
+              <strong class="info-title">Опис:</strong>
+              <span class="info-text">${animal.description}</span>
+            </li>
+
+            <li class="info-item">
+              <strong class="info-title">Здоров’я:</strong>
+              <span class="info-text">${animal.healthStatus}</span>
+            </li>
+
+            <li class="info-item">
+              <strong class="info-title">Поведінка:</strong>
+              <span class="info-text">${animal.behavior}</span>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn-primary adoptBtn" id="adoptBtn">
+          Взяти додому
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
