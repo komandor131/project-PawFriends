@@ -1,0 +1,118 @@
+/*#region h2 and p*/
+.review-main-text{
+font-weight: 700;
+font-size: 36px;
+line-height: 1.2;
+letter-spacing: -0.01em;
+text-align: center;
+color: #02060a;
+margin-bottom: 24px;
+}
+@media screen and (min-width: 1440px) {
+  .review-main-text {
+    font-size: 48px;
+    width: 500px;
+    margin: 0 auto 24px;
+  }
+}
+.review-text{
+    font-family: "IBM Plex Sans", sans-serif;
+font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+text-align: center;
+color: #02060a;
+margin-bottom: 40px;
+}
+@media screen and (min-width: 1440px) {
+ .review-text {
+    font-size: 18px;
+  }
+}
+
+/*#endregion h2 and p*/
+
+/*#region writers text*/
+
+.revier-rating{
+    margin-bottom: 32px;
+}
+.element-text{
+font-weight: 400;
+font-size: 18px;
+line-height: 1.5;
+margin-bottom: 32px;
+}
+@media screen and (min-width: 1440px) {
+ .element-text {
+    font-size: 20px;
+  }
+}
+.element-author{
+font-weight: 600;
+font-size: 14px;
+line-height: 1.5;
+}
+@media screen and (min-width: 1440px) {
+.element-author {
+    font-size: 20px;
+  }
+}
+/*#endregion writers text*/
+
+/*#region swiper block*/
+
+.swiper-pagination{
+    position: relative;
+    text-align: left;
+}
+.review-navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav{
+    border: 1px solid #c3b49d;
+border-radius: 8px;
+padding: 12px;
+width: 48px;
+height: 48px;
+background: #eee9e3;
+}
+
+.nav-block{
+    display: flex;
+    gap: 16px;
+}
+/* buttons */
+.review-next,
+.review-prev{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* buttons */
+.revirw-svg{
+    width: 30px;
+    height: 30px;
+}
+.review-pagination .swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+}
+
+.review-pagination .swiper-pagination-bullet-active {
+  background: #02060a;;
+  width: 12px;
+  height: 12px;
+}
+
+/*#endregion swiper block*/
+
+
+
+
+
+
+
+
