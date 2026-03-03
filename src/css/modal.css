@@ -47,7 +47,7 @@
   width: calc(100% - 40px);
   overflow-y: auto;
   max-height: 90vh; 
-  clip-path: inset(0 round 20px);
+  clip-path: inset(0 round 8px);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
