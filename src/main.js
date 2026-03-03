@@ -15,3 +15,5 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 import.meta.glob('./js/*.js', { eager: true });
+
+import './js/modal.js';

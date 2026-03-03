@@ -138,9 +138,15 @@
   flex-direction: column;
   gap: 8px;
 }
+.details-row {
+  display: flex;
+  gap: 16px;
+}
 .modal-header .name {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -1%;
 }
 .modal-info-list {
   display: flex;
@@ -155,6 +161,9 @@
 }
 .info-title {
   font-weight: 600;
+}
+.info-title .behavior{
+  font-weight: 700;
 }
 
 /* Зображення */
