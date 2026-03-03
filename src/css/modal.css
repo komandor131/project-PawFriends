@@ -46,8 +46,11 @@
   border-radius: 20px;
   width: calc(100% - 40px);
   overflow-y: auto;
+  max-height: 90vh; 
+  clip-path: inset(0 round 20px);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 @media only screen and (min-width: 768px) {
   .modal {
     padding: 64px 32px;
@@ -236,4 +239,20 @@
   cursor: not-allowed;
   box-shadow: none;
   border: none;
+}
+
+/* Стилізація скролбару */
+.modal::-webkit-scrollbar {
+  width: 8px; 
+}
+.modal::-webkit-scrollbar-track {
+  background: transparent; 
+  margin: 20px 0; 
+}
+.modal::-webkit-scrollbar-thumb {
+  background: #d1d1d1; 
+  border-radius: 10px; 
+}
+.modal::-webkit-scrollbar-thumb:hover {
+  background: var(--main-brown); 
 }
