@@ -14,8 +14,10 @@ export const writeRevier = (arr) =>{
             <div id="rating" class="revier-rating">
             ${renderRating(rate)}
             </div>
+            <div class="reviev-text-block">
             <p class="element-text">${description}</p>
             <p class="element-author">${author}</p>
+            </div>
             </div>
     `).join("")
 }
