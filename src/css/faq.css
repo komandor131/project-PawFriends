@@ -30,6 +30,10 @@
 .ac {
   all: unset;
 }
+.ac.is-active .ac-trigger.faq-btn {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
 .ac .ac-trigger.faq-btn {
   border: none;
   display: flex;
@@ -42,8 +46,8 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  /* border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; */
 }
 /* .ac .ac-trigger.faq-btn:hover {
   background-color: #c3b49d;
