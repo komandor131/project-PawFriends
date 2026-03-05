@@ -67,7 +67,7 @@
   }
 }
 
-/* Стилізація скролбару */
+
 .modal::-webkit-scrollbar {
   width: 8px;
 }
@@ -83,7 +83,7 @@
   background: var(--main-brown);
 }
 
-/* Кнопка закриття */
+
 .modal-close-btn {
   position: absolute;
   top: 16px;
@@ -110,7 +110,7 @@
   fill: none;
 }
 
-/* Контент */
+
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -204,7 +204,7 @@
   font-weight: 700;
 }
 
-/* Зображення */
+
 .modal-image-thumb {
   width: 100%;
   border-radius: 8px;
@@ -230,7 +230,7 @@
   }
 }
 
-/* Головна кнопка "Взяти додому" */
+
 .btn-primary {
   width: 100%;
   background-color: var(--main-brown);
@@ -271,7 +271,7 @@
   border: none;
 }
 
-/* Order Modal Specific Styles */
+
 .order-modal-content {
   display: flex;
   flex-direction: column;
@@ -344,3 +344,4 @@ textarea.order-form-input {
   max-width: 335px;
   margin: 0 auto;
 }
+

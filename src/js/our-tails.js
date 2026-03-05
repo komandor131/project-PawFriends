@@ -277,3 +277,5 @@ const handleMoreBtnClick = event => {
 };
 
 document.addEventListener('DOMContentLoaded', init);
+
+

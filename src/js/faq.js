@@ -8,3 +8,4 @@ if (faqContainer) {
     showMultiple: false,
   });
 }
+

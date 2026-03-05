@@ -42,3 +42,4 @@ function closeBurgerMenu() {
 function closeKeydown(e) {
   if (e.key === 'Escape') closeBurgerMenu();
 }
+

@@ -1,4 +1,4 @@
-/* Category Buttons */
+
 .category {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +21,7 @@
   background-color: #eee9e3;
 }
 
-/* Pagination Styling */
+
 .tails-pagination {
   display: flex;
   justify-content: center;
@@ -79,7 +79,7 @@
   font-weight: 500;
 }
 
-/* Item Styling */
+
 .tails-item {
   display: flex;
   flex-direction: column;
@@ -171,3 +171,4 @@
   background: #02060a;
   color: #fff;
 }
+

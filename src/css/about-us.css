@@ -23,29 +23,27 @@
   object-fit: cover;
 }
 
-/* --- Heading ------------------------------------------------- */
+
 
 #about .house {
   font-family: 'Open Sans', sans-serif;
   margin-bottom: 40px;
 }
 
-/* --- Text overlay -------------------------------------------- */
+
 
 #about .slide-content {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  right: 20px; /* розтягується до правого краю — ніколи не вилазить за viewport */
+  right: 20px; 
   border-radius: 8px;
 }
 
 #about .slide-text {
   font-family: 'IBM Plex Sans', sans-serif;
 }
-/* ============================================================
-   Mobile  ≤ 767px
-   ============================================================ */
+
 
 @media screen and (max-width: 767px) {
   #about .swiper-slide img {
@@ -70,24 +68,24 @@
   }
 
   #about .slide-content {
-    position: absolute; /* обов'язково тут */
+    position: absolute; 
     bottom: 20px;
     left: 20px;
     color: white;
     background: transparent;
     border-radius: 8px;
-    width: 295px; /* найменший розмір — мобілка */
-    height: auto; /* найменший розмір — мобілка */
+    width: 295px; 
+    height: auto; 
   }
 
-  /* Пагінація — ліворуч; кнопки займають правий край */
+  
   #about .swiper-controls {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-top: 24px;
     min-height: 48px;
-    padding-right: 104px; /* 48px + 8px gap + 48px */
+    padding-right: 104px; 
   }
 
   #about .swiper-pagination {
@@ -101,7 +99,7 @@
     gap: 8px;
   }
 
-  /* Кнопки — внизу праворуч, у рядку з пагінацією */
+  
   #about .swiper-button-prev,
   #about .swiper-button-next {
     top: auto !important;
@@ -116,7 +114,7 @@
   }
 
   #about .swiper-button-prev {
-    right: 56px !important; /* 48px (next) + 8px gap */
+    right: 56px !important; 
     left: auto !important;
   }
 
@@ -125,13 +123,10 @@
     left: auto !important;
   }
 }
-/* ============================================================
-   Tablet / Desktop  ≥ 768px
-   ============================================================ */
+
 
 @media screen and (min-width: 768px) {
-  /* Позиційний контекст тільки для картинки — top:50% кнопок
-       відраховується від висоти слайдера, а не від nav-wrap */
+  
   #about .swiper-track {
     position: relative;
   }
@@ -154,7 +149,7 @@
 
   #about .slide-content {
     width: 548px;
-    right: auto; /* скасовуємо right:20px з базових стилів */
+    right: auto; 
     bottom: 32px;
     left: 32px;
 
@@ -165,7 +160,7 @@
     justify-content: center;
   }
 
-  /* Половина кнопки всередині картинки, половина зовні */
+  
   #about .swiper-button-prev,
   #about .swiper-button-next {
     top: 50% !important;
@@ -183,7 +178,7 @@
     left: auto !important;
   }
 
-  /* Пагінація — по центру під фото */
+  
   #about .swiper-controls {
     display: flex;
     justify-content: center;
@@ -218,11 +213,7 @@
     padding-bottom: 80px;
   }
 }
-/* ============================================================
-   Navigation buttons — appearance
-   top / transform задаються в медіа-запитах вище, щоб мобільні
-   overrides не перебивались цим блоком (пізніший !important виграє)
-   ============================================================ */
+
 
 #about .swiper-button-prev::after,
 #about .swiper-button-next::after {
@@ -302,3 +293,5 @@
   outline: none;
   background: rgba(2, 6, 10, 1);
 }
+
+
