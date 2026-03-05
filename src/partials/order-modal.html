@@ -12,43 +12,32 @@
 
     <div class="order-modal-content">
       <h2 class="order-modal-header">Залишіть заявку на знайомство</h2>
-      <form class="order-form" id="orderForm" method="post">
-        <label for="name" class="order-form-label">Ім’я*</label>
-        <div class="input-wrapper">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            class="order-form-input"
-            placeholder="Введіть ваше ім’я"
-          />
-          <span class="error-message"></span>
+      <form class="order-form" id="orderForm">
+        
+        <div class="form-field">
+          <label for="name" class="order-form-label">Ім’я*</label>
+          <div class="input-wrapper">
+            <input type="text" id="name" name="name" class="order-form-input" placeholder="Введіть ваше ім’я" required />
+            <span class="error-message"></span>
+          </div>
         </div>
 
-        <label for="phone" class="order-form-label">Телефон*</label>
-        <div class="input-wrapper">
-          <input
-            type="tel"
-            id="tel"
-            name="tel"
-            class="order-form-input"
-            placeholder="380XXXXXXXXX"
-            maxlength="12"
-          />
-          <span class="error-message"></span>
+        <div class="form-field">
+          <label for="tel" class="order-form-label">Телефон*</label>
+          <div class="input-wrapper">
+            <input type="tel" id="tel" name="tel" class="order-form-input" placeholder="380XXXXXXXXX" maxlength="12" required />
+            <span class="error-message"></span>
+          </div>
         </div>
 
-        <label for="message" class="order-form-label">Коментар</label>
-        <div class="input-wrapper">
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            class="order-form-input"
-            placeholder="Напишіть ваш коментар"
-          ></textarea>
-          <span class="error-message"></span>
+        <div class="form-field">
+          <label for="message" class="order-form-label">Коментар</label>
+          <div class="input-wrapper">
+            <textarea id="message" name="message" rows="4" class="order-form-input" placeholder="Напишіть ваш коментар"></textarea>
+            <span class="error-message"></span>
+          </div>
         </div>
+
         <button type="submit" class="btn-primary orderBtn" id="orderBtn">
           Надіслати
         </button>
