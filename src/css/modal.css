@@ -1,0 +1,346 @@
+:root {
+  --anim-speed: 0.3s;
+  --main-brown: #88765c;
+  --hover-brown: #eee9e3;
+  --bg-light: #eee9e3;
+  --error: #ae0000;
+  --text: #02060a;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--anim-speed) ease,
+    visibility var(--anim-speed) ease;
+}
+
+.error-message {
+  display: block;
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 8px;
+  min-height: 18px;
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400px;
+  line-height: 150%;
+  font-size: 16px;
+  color: var(--text);
+}
+.modal {
+  position: relative;
+  padding: 64px 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: calc(100% - 40px);
+  overflow-y: auto;
+  max-height: 90vh;
+  clip-path: inset(0 round 8px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (min-width: 768px) {
+  .modal {
+    padding: 64px 32px;
+    width: calc(100% - 64px);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .modal {
+    padding: 64px;
+    width: calc(100% - 128px);
+  }
+}
+
+/* Стилізація скролбару */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 20px 0;
+}
+.modal::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 10px;
+}
+.modal::-webkit-scrollbar-thumb:hover {
+  background: var(--main-brown);
+}
+
+/* Кнопка закриття */
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+
+  transition:
+    opacity var(--anim-speed) ease,
+    transform var(--anim-speed) ease;
+}
+.modal-close-btn:hover {
+  opacity: 0.6;
+  transform: rotate(90deg);
+}
+
+.modal-close-btn svg {
+  stroke: var(--text);
+  fill: none;
+}
+
+/* Контент */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media only screen and (min-width: 768px) {
+  .modal-content {
+    flex-direction: row;
+  }
+}
+.modal-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .modal-header {
+    order: 1;
+  }
+  .btn-primary.adoptBtn {
+    order: 2;
+  }
+  .modal-body {
+    order: 3;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .modal-header {
+    order: 1;
+  }
+  .modal-body {
+    order: 2;
+  }
+  .btn-primary.adoptBtn {
+    order: 3;
+  }
+}
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+.details-row {
+  display: flex;
+  gap: 16px;
+}
+.modal-header .name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 38px;
+}
+@media only screen and (min-width: 1440px) {
+  .modal-header .name {
+    line-height: 48px;
+  }
+}
+
+.modal-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  line-height: 21px;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.info-title {
+  font-weight: 600;
+  height: 21px;
+}
+@media only screen and (min-width: 1440px) {
+  .info-title {
+    height: 24px;
+  }
+  .modal-info-list {
+    line-height: 24px;
+  }
+}
+.info-title .behavior {
+  font-weight: 700;
+}
+
+/* Зображення */
+.modal-image-thumb {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.animal-image {
+  width: 100%;
+  height: 295px;
+  display: block;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-image-thumb {
+    width: 50%;
+    height: 450px;
+    flex-shrink: 0;
+  }
+  .animal-image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Головна кнопка "Взяти додому" */
+.btn-primary {
+  width: 100%;
+  background-color: var(--main-brown);
+  border: 1px solid transparent;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition:
+    background-color var(--anim-speed) ease,
+    color var(--anim-speed) ease,
+    box-shadow var(--anim-speed) ease;
+}
+@media only screen and (min-width: 768px) {
+  .btn-primary {
+    width: 100%;
+  }
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--hover-brown);
+  border: 1px solid var(--main-brown);
+  outline: none;
+  color: var(--text);
+}
+.btn-primary:active {
+  background-color: var(--bg-light);
+  color: var(--text);
+  box-shadow: 0px 4px 6px -2px rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.08) inset;
+}
+.btn-primary:disabled {
+  background-color: var(--bg-light);
+  color: #ffffff;
+  cursor: not-allowed;
+  box-shadow: none;
+  border: none;
+}
+
+/* Order Modal Specific Styles */
+.order-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.order-modal-header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -1%;
+  text-align: center;
+}
+.order-modal-backdrop .modal {
+  max-width: 768px;
+}
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.order-form-input {
+  font-size: 16px;
+  line-height: 150%;
+  width: 100%;
+  border-radius: 12px;
+  background-color: rgba(2, 6, 10, 0.05);
+  border: 1px solid transparent;
+  padding: 8px 12px;
+  outline: none;
+  transition:
+    border-color var(--anim-speed),
+    background-color var(--anim-speed);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #02060a99;
+  opacity: 1;
+}
+.order-form-input:focus {
+  background-color: var(--hover-brown);
+  border: 1px solid #c3b49d;
+}
+
+textarea.order-form-input {
+  resize: none;
+  font-size: 16px;
+  height: 180px;
+}
+
+.order-form-input.is-invalid {
+  border: 1px solid var(--error) !important;
+  color: var(--error);
+}
+
+.order-form-input.is-invalid::placeholder {
+  color: var(--error);
+}
+
+.orderBtn {
+  max-width: 335px;
+  margin: 0 auto;
+}
