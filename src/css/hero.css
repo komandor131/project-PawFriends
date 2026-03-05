@@ -2,7 +2,7 @@
 
 
 .hero-section {
-    padding: 64px 20px;
+    padding: 64px 0;
     min-height: 544px;
 
     position: relative;
@@ -35,7 +35,7 @@
 
 @media (min-width: 768px) {
     .hero-section {
-        padding: 64px 32px 235px 32px;
+        padding: 64px 0;
         min-height: 425px;
         background-position: center;
     }
@@ -52,7 +52,7 @@
 
 @media (min-width: 1440px) {
     .hero-section {
-        padding: 128px 64px 413px 64px;
+        padding: 128px 0;
         min-height: 487px;
         background-position: center;
     }
