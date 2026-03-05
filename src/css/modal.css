@@ -1,16 +1,9 @@
-/* Глобальні скидання */
-* {
-  box-sizing: border-box;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 :root {
   --anim-speed: 0.3s;
   --main-brown: #88765c;
   --hover-brown: #eee9e3;
   --bg-light: #eee9e3;
+  --error: #ae0000;
 }
 
 .is-hidden {
@@ -22,7 +15,7 @@
     visibility var(--anim-speed) ease;
 }
 
-.animal-modal-backdrop {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -46,7 +39,7 @@
   border-radius: 8px;
   width: calc(100% - 40px);
   overflow-y: auto;
-  max-height: 90vh; 
+  max-height: 90vh;
   clip-path: inset(0 round 8px);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -145,6 +138,7 @@
   gap: 16px;
 }
 .modal-header .name {
+  font-family: 'Open Sans', sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 120%;
@@ -164,13 +158,12 @@
 .info-title {
   font-weight: 600;
 }
-.info-title .behavior{
+.info-title .behavior {
   font-weight: 700;
 }
 
 /* Зображення */
 .modal-image-thumb {
-  height: 295px;
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
@@ -178,7 +171,7 @@
 
 .animal-image {
   width: 100%;
-  height: auto;
+  height: 295px;
   display: block;
   object-fit: cover;
 }
@@ -241,16 +234,91 @@
 
 /* Стилізація скролбару */
 .modal::-webkit-scrollbar {
-  width: 8px; 
+  width: 8px;
 }
 .modal::-webkit-scrollbar-track {
-  background: transparent; 
-  margin: 20px 0; 
+  background: transparent;
+  margin: 20px 0;
 }
 .modal::-webkit-scrollbar-thumb {
-  background: #d1d1d1; 
-  border-radius: 10px; 
+  background: #d1d1d1;
+  border-radius: 10px;
 }
 .modal::-webkit-scrollbar-thumb:hover {
-  background: var(--main-brown); 
+  background: var(--main-brown);
+}
+
+/* Order Modal Specific Styles */
+.order-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.order-modal-header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -1%;
+  text-align: center;
+}
+.order-modal-backdrop .modal {
+  max-width: 768px;
+}
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+.order-form-input {
+  width: 100%;
+  border-radius: 12px;
+  background-color: rgba(2, 6, 10, 0.05);
+  border: 1px solid transparent;
+  padding: 12px 16px;
+  outline: none;
+  transition:
+    border-color var(--anim-speed),
+    background-color var(--anim-speed);
+}
+.order-form-label {
+  margin-bottom: -8px;
+}
+input::placeholder,
+textarea::placeholder {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #02060a99;
+  opacity: 1;
+}
+.order-form-input:focus {
+  background-color: var(--hover-brown);
+  border: 1px solid #c3b49d;
+}
+textarea.order-form-input {
+  resize: none;
+}
+
+.order-form-input.is-invalid {
+  border: 1px solid var(--error) !important;
+  color: var(--error);
+}
+
+.order-form-input.is-invalid::placeholder {
+  color: var(--error);
+}
+
+.error-message {
+  display: block;
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+.orderBtn {
+  max-width: 335px;
+  margin: 0 auto;
 }
