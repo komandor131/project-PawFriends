@@ -14,10 +14,8 @@ export const writeRevier = (arr) =>{
             <div id="rating" class="revier-rating">
             ${renderRating(rate)}
             </div>
-            <div class="reviev-text-block">
             <p class="element-text">${description}</p>
             <p class="element-author">${author}</p>
-            </div>
             </div>
     `).join("")
 }
@@ -42,9 +40,33 @@ export function renderRating(value) {
   return starsHTML;
 }
 
+function swiperNextStop(){
+  const nextBtm = document.querySelector('.review-next')
+  if (nextBtm){
+    nextBtm.style.opacity = 0.4;
+    nextBtm.style.background = "#eee9e3";
+    nextBtm.pointerEvents = 'none';
+  }
+}
+function swiperNextAwait(){
+   const nextBtm = document.querySelector('.review-next')
+  if (nextBtm){
+    nextBtm.style.opacity = 1;
+    nextBtm.pointerEvents = 'auto';
+  } 
+}
+function btnBackStao(){
+  const prevBtn = document.querySelector(".review-prev")
+  if(prevBtn){
+    prevBtn.style.opacity = 1;
+    prevBtn.pointerEvents = 'auto';
+  }
+}
+
+
 export  const paramsSwiperReview = {
   modules: [Navigation, Pagination],
-  loop: true,
+  loop: false,
   slidesPerView: 1,
   navigation: {
     nextEl: '.review-next',
@@ -66,6 +88,42 @@ export  const paramsSwiperReview = {
     },
   },
   spaceBetween: 32,
+on: {
+  init(swiper) {
+    const prevBtn = document.querySelector(".review-prev");
+    if (swiper.isBeginning && prevBtn) {
+      prevBtn.style.opacity = 0.4;
+      prevBtn.style.pointerEvents = "none";
+    }
+  },
+  reachEnd(swiper) {
+    swiperNextStop();
+  },
+  fromEdge(swiper) {
+    swiperNextAwait();
+  },
+  slideChange(swiper) {
+    const prevBtn = document.querySelector(".review-prev");
+    const nextBtn = document.querySelector(".review-next");
+
+    // prev
+    if (swiper.isBeginning) {
+      prevBtn.style.opacity = 0.4;
+      prevBtn.style.pointerEvents = "none";
+    } else {
+      prevBtn.style.opacity = 1;
+      prevBtn.style.pointerEvents = "auto";
+    }
+
+    // next
+    if (swiper.isEnd) {
+      nextBtn.style.opacity = 0.4;
+      nextBtn.style.pointerEvents = "none";
+    } else {
+      nextBtn.style.opacity = 1;
+      nextBtn.style.pointerEvents = "auto";
+    }
+  }
+}
+
 };
-
-

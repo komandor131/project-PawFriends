@@ -28,7 +28,7 @@ async function firsLoadet(){
    try{
     
     const views = await getReview()
-    console.log(views);
+    
     element.innerHTML = writeRevier(views);
     const swiperReview = new Swiper('.swiper', paramsSwiperReview);
    }catch(error){
