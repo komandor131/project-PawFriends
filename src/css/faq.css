@@ -1,0 +1,125 @@
+.faq-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+@media screen and (min-width: 1440px) {
+  .faq-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+.faq-title {
+  font-weight: 700;
+  font-size: 36px;
+  padding-bottom: 40px;
+  line-height: 1.2;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .faq-title {
+    padding-bottom: 80px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .faq-title {
+    font-size: 48px;
+  }
+}
+
+.ac .ac-trigger::after {
+  display: none;
+}
+.ac.is-active .faq-svg {
+  transform: rotate(45deg);
+}
+.ac {
+  all: unset;
+}
+.ac.is-active .ac-trigger.faq-btn {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.ac .ac-trigger.faq-btn {
+  border: none;
+  display: flex;
+  width: 100%;
+  background-color: transparent;
+  gap: 24px;
+  align-items: center;
+  background-color: #eee9e3;
+  padding: 24px 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  /* border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; */
+}
+/* .ac .ac-trigger.faq-btn:hover {
+  background-color: #c3b49d;
+  color: inherit;
+} */
+.ac .ac-trigger.faq-btn:focus {
+  color: inherit;
+}
+.faq-list {
+  margin-bottom: 16px;
+  display: block;
+  border: none;
+  border-radius: 8px;
+}
+.faq-list-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  flex: 1 1 auto;
+  text-align: left;
+}
+@media screen and (min-width: 1440px) {
+  .faq-list-title {
+    font-size: 18px;
+  }
+}
+.faq-svg {
+  flex: 0 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.faq-list-item {
+  background-color: #eee9e3;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+@media only screen and (min-width: 1440px) {
+  .faq-list-item {
+    font-size: 16px;
+  }
+}
+.faq-list-item-text {
+  padding-bottom: 8px;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+@media only screen and (min-width: 1440px) {
+  .faq-list-item-text,
+  .faq-list-number .faq-list-item-text {
+    padding-bottom: 16px;
+  }
+}
+.faq-list-number .faq-list-item-text {
+  list-style-type: decimal;
+}
+
+.faq-list-caption {
+  padding-bottom: 8px;
+}
+
+.last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
