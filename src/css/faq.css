@@ -2,7 +2,12 @@
   padding-top: 64px;
   padding-bottom: 64px;
 }
-
+@media screen and (min-width: 1440px) {
+  .faq-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
 .faq-title {
   font-weight: 700;
   font-size: 36px;
