@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { handleAnimalClick } from './modal-icon.js';
+import { handleAnimalClick } from './modal.js';
 
 const api = axios.create({
   baseURL: 'https://paw-hut.b.goit.study/api',
