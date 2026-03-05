@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script type="module" crossorigin src="/project-PawFriends/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-PawFriends/assets/vendor-FsZQOrrt.js">
+    <link rel="modulepreload" crossorigin href="/project-PawFriends/assets/vendor-BAA9ylf6.js">
     <link rel="stylesheet" crossorigin href="/project-PawFriends/assets/vendor-Af9q1hxZ.css">
-    <link rel="stylesheet" crossorigin href="/project-PawFriends/assets/index-qFae1Sb0.css">
+    <link rel="stylesheet" crossorigin href="/project-PawFriends/assets/index-CM_BcdMO.css">
   </head>
   <body>
     <header class="header">
@@ -73,39 +73,107 @@
       
     </main>
     
-    <div class="burger-menu">
-    <div class="container">
+    <div class="backdrop animal-modal-backdrop is-hidden" id="modalBackdrop">
+  <div class="modal">
+    <button
+      class="modal-close-btn"
+      id="closeModal"
+      aria-label="Закрити модальне вікно"
+    >
+      <svg width="24" height="24">
+        <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-close"></use>
+      </svg>
+    </button>
 
-        <div class="burger-header">
-            <svg class="header-icon" width="157" height="51">
-                <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-logo"></use>
-            </svg>
+    <div class="modal-content">
+      <div class="modal-image-thumb">
+        <img src="" alt="Фото тваринки" class="animal-image" />
+      </div>
 
-            <button class="close-burger-menu burger-btn" type="button">
-                <svg class="close-mobile" width="24" height="24">
-                    <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-close"></use>
-                </svg>
-            </button>
+      <div class="modal-content-wrapper">
+        <div class="modal-header">
+          <p class="species"></p>
+          <h3 class="name" id="petName"></h3>
+          <div class="details-row">
+            <span class="age"></span>
+            <span class="gender"></span>
+          </div>
         </div>
-        
-        <nav class="nav-mobile">
 
-            <ul class="mobile-list">
-                <li class="mobile-item"><a class="header-nav-link" href="#find-friend">Знайди друга</a></li>
-                <li class="mobile-item"><a class="header-nav-link" href="#about">Про нас</a></li>
-                <li class="mobile-item"><a class="header-nav-link" href="#question">Часті запитання</a></li>
-                <li class="mobile-item"><a class="header-nav-link" href="#history">Історії успіху</a></li>
-            </ul>
+        <div class="modal-body">
+          <ul class="modal-info-list">
+            <li class="info-item">
+              <strong class="info-title">Опис:</strong>
+              <span class="info-text"></span>
+            </li>
 
-            <a class="burger-button" href="#find-friend">Взяти друга</a>
-        </nav>
+            <li class="info-item">
+              <strong class="info-title">Здоров’я:</strong>
+              <span class="info-text"></span>
+            </li>
 
-        
-        
+            <li class="info-item">
+              <strong class="info-title behavior">Поведінка:</strong>
+              <span class="info-text"></span>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn-primary adoptBtn" id="adoptBtn">
+          Взяти додому
+        </button>
+      </div>
     </div>
+  </div>
 </div>
 
-    
-    </body>
+    <div class="backdrop order-modal-backdrop is-hidden" id="modalBackdrop">
+  <div class="modal">
+    <button
+      class="modal-close-btn"
+      id="closeModal"
+      aria-label="Закрити модальне вікно"
+    >
+      <svg width="24" height="24">
+        <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <div class="order-modal-content">
+      <h2 class="order-modal-header">Залишіть заявку на знайомство</h2>
+      <form class="order-form" id="orderForm">
+        
+        <div class="form-field">
+          <label for="name" class="order-form-label">Ім’я*</label>
+          <div class="input-wrapper">
+            <input type="text" id="name" name="name" class="order-form-input" placeholder="Введіть ваше ім’я" required />
+            <span class="error-message"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="tel" class="order-form-label">Телефон*</label>
+          <div class="input-wrapper">
+            <input type="tel" id="tel" name="tel" class="order-form-input" placeholder="380XXXXXXXXX" maxlength="12" required />
+            <span class="error-message"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="message" class="order-form-label">Коментар</label>
+          <div class="input-wrapper">
+            <textarea id="message" name="message" rows="4" class="order-form-input" placeholder="Напишіть ваш коментар"></textarea>
+            <span class="error-message"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary orderBtn" id="orderBtn">
+          Надіслати
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>
