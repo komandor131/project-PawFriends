@@ -20,7 +20,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    max-width: 1440px;
+    /* max-width: 1440px; */
     text-align: left;
     margin: 0 auto;
 }
@@ -36,7 +36,7 @@
 @media (min-width: 768px) {
     .hero-section {
         padding: 64px 0;
-        min-height: 425px;
+        /* min-height: 425px; */
         background-position: center;
     }
 }
@@ -53,7 +53,7 @@
 @media (min-width: 1440px) {
     .hero-section {
         padding: 128px 0;
-        min-height: 487px;
+        min-height: 900px;
         background-position: center;
     }
 }
