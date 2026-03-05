@@ -2,6 +2,7 @@ const openBurger = document.querySelector('.burger-btn');
 const closeBurger = document.querySelector('.close-burger-menu');
 const burgerMenu = document.querySelector('.burger-menu');
 const menuLink = document.querySelectorAll('.burger-menu .header-nav-link');
+const findFriend = document.querySelector('.burger-button')
 
 
 if (openBurger && closeBurger && burgerMenu) {
@@ -12,6 +13,14 @@ if (openBurger && closeBurger && burgerMenu) {
       closeBurgerMenu();
     }
   });
+
+  findFriend.addEventListener('click', ()=> {
+    const section = document.querySelector("#find-friend")
+    if(section){
+        section.scrollIntoView({behavior: "smooth"})
+    }
+    closeBurgerMenu()
+  })
 
   menuLink.forEach(link => {
     link.addEventListener('click', closeBurgerMenu);
