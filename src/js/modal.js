@@ -191,7 +191,7 @@ export function initModalEvents() {
   }
 
   animalModalBackdrop
-    .querySelector('#closeModal')
+    .querySelector('.modal-close-btn')
     .addEventListener('click', () => closeModal(animalModalBackdrop));
 
   animalModalBackdrop
@@ -208,7 +208,7 @@ export function initModalEvents() {
   });
 
   orderModalBackdrop
-    .querySelector('#closeModal')
+    .querySelector('.modal-close-btn')
     .addEventListener('click', () => closeModal(orderModalBackdrop));
   orderForm.addEventListener('submit', handleFormSubmit);
 
