@@ -1,0 +1,53 @@
+<div class="backdrop animal-modal-backdrop is-hidden" id="modalBackdrop">
+  <div class="modal">
+    <button
+      class="modal-close-btn"
+      id="closeModal"
+      aria-label="Закрити модальне вікно"
+    >
+      <svg width="24" height="24">
+        <use href="./img/icon/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <div class="modal-content">
+      <div class="modal-image-thumb">
+        <img src="" alt="Фото тваринки" class="animal-image" />
+      </div>
+
+      <div class="modal-content-wrapper">
+        <div class="modal-header">
+          <p class="species"></p>
+          <h3 class="name" id="petName"></h3>
+          <div class="details-row">
+            <span class="age"></span>
+            <span class="gender"></span>
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <ul class="modal-info-list">
+            <li class="info-item">
+              <strong class="info-title">Опис:</strong>
+              <span class="info-text"></span>
+            </li>
+
+            <li class="info-item">
+              <strong class="info-title">Здоров’я:</strong>
+              <span class="info-text"></span>
+            </li>
+
+            <li class="info-item">
+              <strong class="info-title behavior">Поведінка:</strong>
+              <span class="info-text"></span>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn-primary adoptBtn" id="adoptBtn">
+          Взяти додому
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
