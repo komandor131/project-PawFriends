@@ -65,7 +65,7 @@
     }
 }
 
-.tails-btn {
+/* .tails-btn {
     display: block;
     width: 100%;
     margin: 40px auto 0;
@@ -95,17 +95,26 @@
 .tails-btn:disabled {
     background: #88765c;
     opacity: 0.3;
-}
+} */
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .tails-btn {
         width: 335px;
     }
-}
+} */
 
-@media only screen and (min-width: 1440px) {
+
+/* @media only screen and (min-width: 1440px) {
     .tails-btn {
         width: 192px;
         font-size: 16px;
     }
+} */
+
+.tails-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
 }
