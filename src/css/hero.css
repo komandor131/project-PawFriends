@@ -1,3 +1,67 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* прибираємо стандартні відступи */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+}
+
+/* списки */
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+/* посилання */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* кнопки */
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    font: inherit;
+}
+
+/* зображення */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* форма */
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* body */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+
+
 /* Section */
 
 
@@ -20,8 +84,10 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
+    max-width: 1440px;
+    text-align: left;
+    margin: 0 auto;
 }
-
 
 @media (min-resolution: 192dpi) {
     .hero-section {
@@ -33,14 +99,9 @@
 
 @media (min-width: 768px) {
     .hero-section {
-        padding: 64px 32px;
+        padding: 64px 32px 235px 32px;
         min-height: 425px;
         background-position: center;
-    }
-
-
-    .hero-container {
-        max-width: 622px;
     }
 }
 
@@ -55,7 +116,7 @@
 
 @media (min-width: 1440px) {
     .hero-section {
-        padding: 128px 64px;
+        padding: 128px 64px 413px 64px;
         min-height: 487px;
         background-position: center;
     }
@@ -70,9 +131,6 @@
 }
 
 
-
-
-
 .hero-title {
     font-weight: 700;
     font-size: 40px;
@@ -84,9 +142,16 @@
     padding-bottom: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+    .hero-title {
+        max-width: 622px;
+    }
+}
+
 @media only screen and (min-width: 1440px) {
     .hero-title {
         font-size: 56px;
+        max-width: 622px;
     }
 }
 
@@ -98,8 +163,14 @@
     color: #fff;
     font-family: "IBM Plex Sans",
         sans-serif;
-    max-width: 512px;
     padding-bottom: 32px;
+    max-width: 512px;
+}
+
+@media only screen and (min-width: 768px) {
+    .hero-p {
+        max-width: 500px;
+    }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -138,12 +209,17 @@
     transition: background-color 200ms ease, box-shadow 200ms ease, transform 150ms ease;
 }
 
-.hero-btn:hover,
-.hero-btn:focus-visible {
+
+.hero-btn:hover {
     background: #c3b49d;
     border: 1px solid #332c22;
     border-radius: 8px;
     color: #332c22;
+}
+
+.hero-btn:focus-visible {
+    outline: 2px solid #eee9e3;
+    outline-offset: 2px;
 }
 
 .hero-btn:active {
