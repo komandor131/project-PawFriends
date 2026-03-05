@@ -15,6 +15,15 @@
     visibility var(--anim-speed) ease;
 }
 
+.error-message {
+  display: block;
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 8px;
+  min-height: 18px;
+  display: none;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -55,6 +64,22 @@
     padding: 64px;
     width: calc(100% - 128px);
   }
+}
+
+/* Стилізація скролбару */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 20px 0;
+}
+.modal::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 10px;
+}
+.modal::-webkit-scrollbar-thumb:hover {
+  background: var(--main-brown);
 }
 
 /* Кнопка закриття */
@@ -232,22 +257,6 @@
   border: none;
 }
 
-/* Стилізація скролбару */
-.modal::-webkit-scrollbar {
-  width: 8px;
-}
-.modal::-webkit-scrollbar-track {
-  background: transparent;
-  margin: 20px 0;
-}
-.modal::-webkit-scrollbar-thumb {
-  background: #d1d1d1;
-  border-radius: 10px;
-}
-.modal::-webkit-scrollbar-thumb:hover {
-  background: var(--main-brown);
-}
-
 /* Order Modal Specific Styles */
 .order-modal-content {
   display: flex;
@@ -308,14 +317,6 @@ textarea.order-form-input {
 
 .order-form-input.is-invalid::placeholder {
   color: var(--error);
-}
-
-.error-message {
-  display: block;
-  color: var(--error);
-  font-size: 12px;
-  margin-top: 4px;
-  min-height: 18px;
 }
 
 .orderBtn {
