@@ -8,31 +8,45 @@ const ORDER_URL = 'https://paw-hut.b.goit.study/api/orders';
 const animalModalBackdrop = document.querySelector('.animal-modal-backdrop');
 const orderModalBackdrop = document.querySelector('.order-modal-backdrop');
 const orderForm = document.querySelector('.order-form');
-const loadingSpinner = document.querySelector('.loader');
 
 let currentAnimalId = null;
 
-/**
- * Functions to open and close modals
- */
 export function openModal(modal) {
+  if (!modal) return;
   modal.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
 }
 export function closeModal(modal) {
+  if (!modal) return;
   modal.classList.add('is-hidden');
   document.body.style.overflow = '';
   document.body.style.paddingRight = '';
 }
 
-/**
- * Fetches animal data from the API and finds a specific animal by its ID.
- */
 export async function getAnimalById(id) {
   try {
-    const response = await axios.get(`${ANIMAL_URL}?page=1&limit=10`);
-    const animals = response.data.animals;
-    const foundAnimal = animals.find(animal => animal._id === id);
+    let page = 1;
+    const limit = 30;
+    let foundAnimal = null;
+
+    while (!foundAnimal) {
+      const response = await axios.get(
+        `${ANIMAL_URL}?page=${page}&limit=${limit}`
+      );
+      const animals = response.data.animals || [];
+      const totalItems = response.data.totalItems || 0;
+
+      foundAnimal = animals.find(animal => animal._id === id) || null;
+
+      const loadedItems = page * limit;
+      const isLastPage = loadedItems >= totalItems || animals.length === 0;
+
+      if (foundAnimal || isLastPage) {
+        break;
+      }
+
+      page += 1;
+    }
 
     if (!foundAnimal) {
       iziToast.warning({
@@ -55,11 +69,8 @@ export async function getAnimalById(id) {
   }
 }
 
-/**
- * Injects animal data into the modal template and opens the modal.
- */
 export function renderAnimalModal(animal) {
-  if (!animal) return;
+  if (!animal || !animalModalBackdrop) return;
 
   currentAnimalId = animal._id;
 
@@ -84,22 +95,15 @@ export function renderAnimalModal(animal) {
   }
 }
 
-/**
- * Coordinates fetching animal data and opening the modal.
- * Used as a main entry point for card click events.
- */
 export async function handleAnimalClick(id) {
   const animal = await getAnimalById(id);
 
-  if (animal) {
+  if (animal && animalModalBackdrop) {
     renderAnimalModal(animal);
     openModal(animalModalBackdrop);
   }
 }
 
-/**
- * Clears all error messages and invalid styles from the form.
- */
 function clearErrors(form) {
   const inputs = form.querySelectorAll('.order-form-input');
   inputs.forEach(input => {
@@ -111,11 +115,6 @@ function clearErrors(form) {
   });
 }
 
-/**
- * Handles the form submission event.
- * Validates the input fields and displays error messages if needed.
- * Sends the animal ID, name, phone, and comment as part of the order data.
- */
 async function handleFormSubmit(event) {
   event.preventDefault();
   const form = event.currentTarget;
@@ -123,7 +122,6 @@ async function handleFormSubmit(event) {
 
   clearErrors(form);
 
-  // validation
   let hasError = false;
   const name = form.elements.name.value.trim();
   const phone = form.elements.tel.value.trim().replace(/[^\d]/g, '');
@@ -155,7 +153,6 @@ async function handleFormSubmit(event) {
 
   if (hasError) return;
 
-  // send data to API
   const formData = {
     animalId: currentAnimalId || '667ad1b8e4b01a2b3c4d5e01',
     name: name,
@@ -188,12 +185,11 @@ async function handleFormSubmit(event) {
   }
 }
 
-/**
- * Initializes event listeners for closing the modal (button, backdrop, Escape key)
- * and switching to the adoption form.
- */
 export function initModalEvents() {
-  // Animal Modal
+  if (!animalModalBackdrop || !orderModalBackdrop || !orderForm) {
+    return;
+  }
+
   animalModalBackdrop
     .querySelector('#closeModal')
     .addEventListener('click', () => closeModal(animalModalBackdrop));
@@ -211,7 +207,6 @@ export function initModalEvents() {
     }
   });
 
-  // Order Modal
   orderModalBackdrop
     .querySelector('#closeModal')
     .addEventListener('click', () => closeModal(orderModalBackdrop));
@@ -223,7 +218,6 @@ export function initModalEvents() {
     }
   });
 
-  // Close on Escape key press
   window.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       closeModal(animalModalBackdrop);
@@ -231,13 +225,4 @@ export function initModalEvents() {
     }
   });
 }
-
-// Global initialization
 initModalEvents();
-
-// For testing
-window.testAnimalModal = handleAnimalClick;
-testAnimalModal('667ad1b8e4b01a2b3c4d5e01');
-
-// const detailsBtn = document.querySelector('.tails-btn');
-// detailsBtn.addEventListener('click', initModalEvents);
