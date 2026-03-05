@@ -73,8 +73,11 @@ font-size: 14px;
 line-height: 1.5;
 }
 @media screen and (min-width: 1440px) {
-.element-author {
+.swiper-slide .element-author {
     font-size: 20px;
+    margin-top: auto;
+font-weight: 600;
+line-height: 1.5;
   }
 }
 @media screen and (min-width: 1440px) {
