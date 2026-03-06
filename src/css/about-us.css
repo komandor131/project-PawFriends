@@ -92,12 +92,14 @@
     position: relative;
     width: 72px;
     height: 24px;
+    display: flex;
+    align-items: center;
   }
 
   #about .swiper-pagination {
     bottom: auto !important;
     top: 50% !important;
-    margin-top: -4px; /* Center 8px bullet vertically */
+    margin-top: -4px; 
     --swiper-pagination-color: #02060a;
   }
 
@@ -193,6 +195,8 @@
     position: relative;
     width: 72px;
     height: 24px;
+    display: flex;
+    align-items: center;
   }
 
   #about .swiper-pagination {

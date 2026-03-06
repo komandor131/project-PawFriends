@@ -121,9 +121,11 @@
 
 .review-pagination-wrapper {
   position: relative;
-  width: 72px; /* Sufficient space for dynamic main and outer dots */
+  width: 72px; 
   height: 24px;
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .review-pagination {
