@@ -95,6 +95,7 @@ on: {
       prevBtn.style.opacity = 0.4;
       prevBtn.style.pointerEvents = "none";
     }
+    
   },
   reachEnd(swiper) {
     swiperNextStop();
