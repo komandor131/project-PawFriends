@@ -16,25 +16,29 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 
 import.meta.glob('./js/*.js', { eager: true });
 
+import {
+  createReviewSwiperOptions,
+  getReview,
+  writeRevier,
+} from './js/review';
 
-import { getReview, paramsSwiperReview, writeRevier } from './js/review';
+const reviewSection = document.querySelector('.review-section');
+const reviewWrapper = reviewSection?.querySelector('.review-swiper-wrapper');
+const reviewSlider = reviewSection?.querySelector('.review-swiper');
 
+if (reviewSection && reviewWrapper && reviewSlider) {
+  firstLoad();
+}
 
-const element = document.querySelector(".swiper-wrapper")
+async function firstLoad() {
+  try {
+    const views = await getReview();
+    reviewWrapper.innerHTML = writeRevier(views);
 
-firsLoadet()
-
-async function firsLoadet(){
-   try{
-    
-    const views = await getReview()
-    
-    element.innerHTML = writeRevier(views);
-    const swiperReview = new Swiper('.swiper', paramsSwiperReview);
-   }catch(error){
+    new Swiper(reviewSlider, createReviewSwiperOptions(reviewSection));
+  } catch (error) {
     console.log(error);
-   }finally{
-   }
+  }
 }
 
 

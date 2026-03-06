@@ -24,6 +24,8 @@ if (aboutSection) {
       pagination: {
         el: paginationEl,
         clickable: true,
+        dynamicBullets: true,
+        dynamicMainBullets: 2,
       },
     });
   }
