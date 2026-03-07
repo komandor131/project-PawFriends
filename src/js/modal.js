@@ -8,8 +8,20 @@ const ORDER_URL = 'https://paw-hut.b.goit.study/api/orders';
 const animalModalBackdrop = document.querySelector('.animal-modal-backdrop');
 const orderModalBackdrop = document.querySelector('.order-modal-backdrop');
 const orderForm = document.querySelector('.order-form');
+const loader = document.querySelector('.loader');
 
 let currentAnimalId = null;
+
+const showLoader = () => {
+  if (loader) {
+    loader.classList.remove('is-hidden');
+  }
+};
+const hideLoader = () => {
+  if (loader) {
+    loader.classList.add('is-hidden');
+  }
+};
 
 export function openModal(modal) {
   if (!modal) return;
@@ -96,11 +108,15 @@ export function renderAnimalModal(animal) {
 }
 
 export async function handleAnimalClick(id) {
-  const animal = await getAnimalById(id);
-
-  if (animal && animalModalBackdrop) {
-    renderAnimalModal(animal);
-    openModal(animalModalBackdrop);
+  showLoader();
+  try {
+    const animal = await getAnimalById(id);
+    if (animal && animalModalBackdrop) {
+      renderAnimalModal(animal);
+      openModal(animalModalBackdrop);
+    }
+  } finally {
+    hideLoader();
   }
 }
 
@@ -108,9 +124,10 @@ function clearErrors(form) {
   const inputs = form.querySelectorAll('.order-form-input');
   inputs.forEach(input => {
     input.classList.remove('is-invalid');
-    const errorMsg = form.querySelector('.error-message');
-    if (errorMsg && errorMsg.classList.contains('error-message')) {
+    const errorMsg = input.parentNode.querySelector('.error-message');
+    if (errorMsg) {
       errorMsg.textContent = '';
+      errorMsg.style.display = 'none';
     }
   });
 }
@@ -119,6 +136,15 @@ async function handleFormSubmit(event) {
   event.preventDefault();
   const form = event.currentTarget;
   const orderBtn = form.querySelector('#orderBtn');
+
+  if (!currentAnimalId) {
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вибрано тварину. Спробуйте відкрити картку знову.',
+      position: 'topRight',
+    });
+    return;
+  }
 
   clearErrors(form);
 
@@ -140,6 +166,7 @@ async function handleFormSubmit(event) {
     input.parentNode.querySelector('.error-message').style.display = 'block';
     input.parentNode.querySelector('.error-message').textContent =
       'Будь ласка, введіть номер телефону в форматі 380XXXXXXXXX.';
+    hasError = true;
   }
 
   if (!name) {
@@ -154,14 +181,16 @@ async function handleFormSubmit(event) {
   if (hasError) return;
 
   const formData = {
-    animalId: currentAnimalId || '667ad1b8e4b01a2b3c4d5e01',
+    animalId: currentAnimalId,
     name: name,
     phone: phone,
-    comment: form.elements.message.value.trim(),
+    comment:
+      form.elements.message.value.trim() || 'Клієнт не залишив коментаря',
   };
 
   orderBtn.disabled = true;
 
+  showLoader;
   try {
     const response = await axios.post(ORDER_URL, formData);
 
@@ -174,7 +203,7 @@ async function handleFormSubmit(event) {
     form.reset();
     closeModal(orderModalBackdrop);
   } catch (error) {
-    console.error('Error submitting order:', error);
+    console.error('Server Validation Error:', error.response?.data);
     iziToast.error({
       title: 'Упс',
       message: 'Щось пішло не так.',
@@ -182,6 +211,7 @@ async function handleFormSubmit(event) {
     });
   } finally {
     orderBtn.disabled = false;
+    hideLoader;
   }
 }
 
@@ -226,5 +256,3 @@ export function initModalEvents() {
   });
 }
 initModalEvents();
-
-
