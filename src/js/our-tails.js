@@ -247,6 +247,11 @@ const handlePageChange = event => {
     state.page = Number(btn.dataset.page);
   }
 
+  const section = document.getElementById('find-friend');
+  if (section) {
+    window.location.href = '#find-friend';
+  }
+
   updateAnimals();
 };
 
