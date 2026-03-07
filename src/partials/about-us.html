@@ -26,15 +26,11 @@
           </div>
 
           <div class="swiper-slide">
-            <img
-              srcset="
-                ./img/images/happy-dog.webp    1x,
-                ./img/images/happy-dog@2x.webp 2x
-              "
-              src="./img/images/happy-dog.webp"
-              alt="Slide 2"
-              loading="lazy"
-            />
+            <picture>
+              <source media="(min-width: 768px)" srcset="./img/images/happy-dog.webp 1x, ./img/images/happy-dog@2x.webp 2x">
+              <source media="(max-width: 767px)" srcset="./img/images/mob-happy-dog1x.webp 1x, ./img/images/mob-happy-dog2x.webp 2x">
+              <img src="./img/images/happy-dog.webp" alt="Slide 2" loading="lazy">
+            </picture>
             <div class="slide-content">
               <p class="slide-text">
                 Ми рятуємо, реабілітуємо та знаходимо люблячі родини для
