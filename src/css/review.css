@@ -119,20 +119,7 @@
   gap: 24px;
 }
 
-.review-pagination-wrapper {
-  position: relative;
-  width: 72px; 
-  height: 24px;
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-}
 
-.review-pagination {
-  bottom: auto !important;
-  top: 50% !important;
-  margin-top: -4px;
-}
 
 .review-pagination.swiper-pagination-bullets-dynamic {
   left: auto;
@@ -247,4 +234,21 @@
   .review-section .nav-block {
     gap: 8px;
   }
+}
+#history .review-pagination-wrapper {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  width: 100%; 
+}
+
+#history .review-pagination {
+  position: static !important; 
+  transform: none !important;
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+    .review-slide {
+        min-height: 0;
+    }
 }
