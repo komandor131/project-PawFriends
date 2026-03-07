@@ -71,7 +71,7 @@ export async function getAnimalById(id) {
 
     return foundAnimal;
   } catch (error) {
-    console.error('Error fetching animal data:', error);
+    console.error('Помилка отримання даних тварини:', error);
     iziToast.error({
       title: 'Помилка',
       message: 'Не вдалося отримати дані. Перевірте з’єднання.',
@@ -203,7 +203,7 @@ async function handleFormSubmit(event) {
     form.reset();
     closeModal(orderModalBackdrop);
   } catch (error) {
-    console.error('Server Validation Error:', error.response?.data);
+    console.error('Помилка валідації на сервері:', error.response?.data);
     iziToast.error({
       title: 'Упс',
       message: 'Щось пішло не так.',

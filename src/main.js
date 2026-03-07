@@ -25,20 +25,43 @@ import {
 const reviewSection = document.querySelector('.review-section');
 const reviewWrapper = reviewSection?.querySelector('.review-swiper-wrapper');
 const reviewSlider = reviewSection?.querySelector('.review-swiper');
+const reviewNavigation = reviewSection?.querySelector('.review-navigation');
 
 if (reviewSection && reviewWrapper && reviewSlider) {
   firstLoad();
 }
 
+function toggleReviewNavigation(isVisible) {
+  if (!reviewNavigation) {
+    return;
+  }
+
+  reviewNavigation.style.display = isVisible ? 'flex' : 'none';
+}
+
 async function firstLoad() {
+  toggleReviewNavigation(false);
+
   try {
     const views = await getReview();
     reviewWrapper.innerHTML = writeRevier(views);
 
+    if (!views.length) {
+      return;
+    }
+
     new Swiper(reviewSlider, createReviewSwiperOptions(reviewSection));
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вдалося отримати відгуки. Спробуйте пізніше.',
+      position: 'topRight',
+    });
+    return;
   }
+
+  toggleReviewNavigation(true);
 }
 
 

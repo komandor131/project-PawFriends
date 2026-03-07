@@ -1,4 +1,5 @@
 import axios from 'axios';
+import iziToast from 'izitoast';
 import { handleAnimalClick } from './modal.js';
 
 const api = axios.create({
@@ -36,6 +37,12 @@ const hideLoader = () => {
   }
 };
 
+const hidePagination = () => {
+  if (refs.pagination) {
+    refs.pagination.classList.add('is-hidden');
+  }
+};
+
 const init = async () => {
   if (!refs.categories || !refs.animals) {
     return;
@@ -68,12 +75,18 @@ const loadCategories = async () => {
 
     refs.categories.innerHTML = html;
   } catch (error) {
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вдалося завантажити категорії. Спробуйте ще раз.',
+      position: 'topRight',
+    });
     console.error('Помилка при завантаженні категорій:', error);
   }
 };
 
 const updateAnimals = async () => {
   showLoader();
+  hidePagination();
 
   try {
     const limit = getLimit();
@@ -92,6 +105,11 @@ const updateAnimals = async () => {
     renderAnimals(data.animals);
     renderPagination(data.totalItems, limit);
   } catch (error) {
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вдалося завантажити тварин. Спробуйте ще раз.',
+      position: 'topRight',
+    });
     console.error('Помилка при завантаженні тварин:', error);
   } finally {
     hideLoader();
@@ -169,12 +187,41 @@ const renderPagination = (totalItems, limit) => {
     return `<button class="page-btn num-btn ${activeClass}" data-page="${pageNumber}">${content}</button>`;
   };
 
+  const isMobile = window.innerWidth < 768;
   let html = '';
 
   if (totalPages <= 5) {
     for (let i = 1; i <= totalPages; i++) {
       html += createNumberBtn(i, i);
     }
+  } else if (isMobile) {
+    const pagesToShow = new Set([1, totalPages]);
+
+    if (state.page <= 3) {
+      pagesToShow.add(2);
+      pagesToShow.add(3);
+      pagesToShow.add(4);
+    } else if (state.page >= totalPages - 2) {
+      pagesToShow.add(totalPages - 3);
+      pagesToShow.add(totalPages - 2);
+      pagesToShow.add(totalPages - 1);
+    } else {
+      pagesToShow.add(state.page - 1);
+      pagesToShow.add(state.page);
+      pagesToShow.add(state.page + 1);
+    }
+
+    const pages = [...pagesToShow]
+      .filter(pageNumber => pageNumber >= 1 && pageNumber <= totalPages)
+      .sort((a, b) => a - b);
+
+    pages.forEach((pageNumber, index) => {
+      if (index > 0 && pageNumber - pages[index - 1] > 1) {
+        html += '<span class="page-dots">...</span>';
+      }
+
+      html += createNumberBtn(pageNumber, pageNumber);
+    });
   } else {
     html += createNumberBtn(1, 1);
 
