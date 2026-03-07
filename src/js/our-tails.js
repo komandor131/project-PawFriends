@@ -187,12 +187,41 @@ const renderPagination = (totalItems, limit) => {
     return `<button class="page-btn num-btn ${activeClass}" data-page="${pageNumber}">${content}</button>`;
   };
 
+  const isMobile = window.innerWidth < 768;
   let html = '';
 
   if (totalPages <= 5) {
     for (let i = 1; i <= totalPages; i++) {
       html += createNumberBtn(i, i);
     }
+  } else if (isMobile) {
+    const pagesToShow = new Set([1, totalPages]);
+
+    if (state.page <= 3) {
+      pagesToShow.add(2);
+      pagesToShow.add(3);
+      pagesToShow.add(4);
+    } else if (state.page >= totalPages - 2) {
+      pagesToShow.add(totalPages - 3);
+      pagesToShow.add(totalPages - 2);
+      pagesToShow.add(totalPages - 1);
+    } else {
+      pagesToShow.add(state.page - 1);
+      pagesToShow.add(state.page);
+      pagesToShow.add(state.page + 1);
+    }
+
+    const pages = [...pagesToShow]
+      .filter(pageNumber => pageNumber >= 1 && pageNumber <= totalPages)
+      .sort((a, b) => a - b);
+
+    pages.forEach((pageNumber, index) => {
+      if (index > 0 && pageNumber - pages[index - 1] > 1) {
+        html += '<span class="page-dots">...</span>';
+      }
+
+      html += createNumberBtn(pageNumber, pageNumber);
+    });
   } else {
     html += createNumberBtn(1, 1);
 
