@@ -24,31 +24,33 @@
 
 .tails-pagination {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-top: 40px;
+  width: 100%;
 }
 .pagination-numbers {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 .page-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   border: 1px solid transparent;
   background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: #02060a;
   transition: all 250ms ease;
   padding: 0;
+  flex-shrink: 0;
 }
 .page-btn svg {
   fill: currentColor;
@@ -75,8 +77,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
+  width: 16px;
+  font-size: 14px;
   font-weight: 500;
+  flex-shrink: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .tails-pagination {
+    justify-content: center;
+  }
+  .tails-pagination,
+  .pagination-numbers {
+    gap: 8px;
+  }
+  .page-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+  .page-dots {
+    width: 24px;
+    font-size: 16px;
+  }
 }
 
 
