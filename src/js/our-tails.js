@@ -1,4 +1,5 @@
 import axios from 'axios';
+import iziToast from 'izitoast';
 import { handleAnimalClick } from './modal.js';
 
 const api = axios.create({
@@ -36,6 +37,12 @@ const hideLoader = () => {
   }
 };
 
+const hidePagination = () => {
+  if (refs.pagination) {
+    refs.pagination.classList.add('is-hidden');
+  }
+};
+
 const init = async () => {
   if (!refs.categories || !refs.animals) {
     return;
@@ -68,12 +75,18 @@ const loadCategories = async () => {
 
     refs.categories.innerHTML = html;
   } catch (error) {
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вдалося завантажити категорії. Спробуйте ще раз.',
+      position: 'topRight',
+    });
     console.error('Помилка при завантаженні категорій:', error);
   }
 };
 
 const updateAnimals = async () => {
   showLoader();
+  hidePagination();
 
   try {
     const limit = getLimit();
@@ -92,6 +105,11 @@ const updateAnimals = async () => {
     renderAnimals(data.animals);
     renderPagination(data.totalItems, limit);
   } catch (error) {
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вдалося завантажити тварин. Спробуйте ще раз.',
+      position: 'topRight',
+    });
     console.error('Помилка при завантаженні тварин:', error);
   } finally {
     hideLoader();
