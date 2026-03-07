@@ -8,8 +8,20 @@ const ORDER_URL = 'https://paw-hut.b.goit.study/api/orders';
 const animalModalBackdrop = document.querySelector('.animal-modal-backdrop');
 const orderModalBackdrop = document.querySelector('.order-modal-backdrop');
 const orderForm = document.querySelector('.order-form');
+const loader = document.querySelector('.loader');
 
 let currentAnimalId = null;
+
+const showLoader = () => {
+  if (loader) {
+    loader.classList.remove('is-hidden');
+  }
+};
+const hideLoader = () => {
+  if (loader) {
+    loader.classList.add('is-hidden');
+  }
+};
 
 export function openModal(modal) {
   if (!modal) return;
@@ -96,11 +108,15 @@ export function renderAnimalModal(animal) {
 }
 
 export async function handleAnimalClick(id) {
-  const animal = await getAnimalById(id);
-
-  if (animal && animalModalBackdrop) {
-    renderAnimalModal(animal);
-    openModal(animalModalBackdrop);
+  showLoader();
+  try {
+    const animal = await getAnimalById(id);
+    if (animal && animalModalBackdrop) {
+      renderAnimalModal(animal);
+      openModal(animalModalBackdrop);
+    }
+  } finally {
+    hideLoader();
   }
 }
 
@@ -174,6 +190,7 @@ async function handleFormSubmit(event) {
 
   orderBtn.disabled = true;
 
+  showLoader;
   try {
     const response = await axios.post(ORDER_URL, formData);
 
@@ -194,6 +211,7 @@ async function handleFormSubmit(event) {
     });
   } finally {
     orderBtn.disabled = false;
+    hideLoader;
   }
 }
 
