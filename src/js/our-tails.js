@@ -1,6 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import { handleAnimalClick } from './modal.js';
+import { withLoader } from './loader.js';
 
 const api = axios.create({
   baseURL: 'https://paw-hut.b.goit.study/api',
@@ -9,7 +10,6 @@ const api = axios.create({
 const refs = {
   categories: document.querySelector('.tails-category'),
   animals: document.querySelector('.tails-list'),
-  loader: document.querySelector('.loader'),
   pagination: document.querySelector('.tails-pagination'),
   pageNumbers: document.querySelector('.pagination-numbers'),
   prevBtn: document.querySelector('.tails-pagination .prev-btn'),
@@ -24,18 +24,6 @@ const state = {
 const getLimit = () => (window.innerWidth >= 1440 ? 9 : 8);
 
 let lastLimit = getLimit();
-
-const showLoader = () => {
-  if (refs.loader) {
-    refs.loader.classList.remove('is-hidden');
-  }
-};
-
-const hideLoader = () => {
-  if (refs.loader) {
-    refs.loader.classList.add('is-hidden');
-  }
-};
 
 const hidePagination = () => {
   if (refs.pagination) {
@@ -63,7 +51,7 @@ const init = async () => {
 
 const loadCategories = async () => {
   try {
-    const response = await api.get('/categories');
+    const response = await withLoader(() => api.get('/categories'));
     const categories = response.data;
 
     let html =
@@ -85,7 +73,6 @@ const loadCategories = async () => {
 };
 
 const updateAnimals = async () => {
-  showLoader();
   hidePagination();
 
   try {
@@ -99,7 +86,7 @@ const updateAnimals = async () => {
       params.categoryId = state.categoryId;
     }
 
-    const response = await api.get('/animals', { params });
+    const response = await withLoader(() => api.get('/animals', { params }));
     const data = response.data;
 
     renderAnimals(data.animals);
@@ -111,8 +98,6 @@ const updateAnimals = async () => {
       position: 'topRight',
     });
     console.error('Помилка при завантаженні тварин:', error);
-  } finally {
-    hideLoader();
   }
 };
 
@@ -128,7 +113,7 @@ const renderAnimals = animals => {
       return `
       <li class="tails-item">
         <div class="tails-item-img-wrap">
-           <img src="${animal.image}" alt="${animal.name}" class="tails-item-img" />
+           <img src="${animal.image}" alt="${animal.name}" class="tails-item-img" width="335" height="311" />
         </div>
         <div class="tails-item-content">
           <p class="tails-item-species">${animal.species}</p>

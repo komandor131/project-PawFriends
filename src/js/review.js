@@ -1,11 +1,12 @@
 import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { Navigation, Pagination } from 'swiper/modules';
+import { withLoader } from './loader.js';
 
 const FEEDBACKS_API_URL = 'https://paw-hut.b.goit.study/api/feedbacks';
 
 export const getReview = async () => {
-  const { data } = await axios.get(FEEDBACKS_API_URL);
+  const { data } = await withLoader(() => axios.get(FEEDBACKS_API_URL));
   return Array.isArray(data.feedbacks) ? data.feedbacks : [];
 };
 

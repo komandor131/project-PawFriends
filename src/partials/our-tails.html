@@ -8,22 +8,34 @@
     <ul class="tails-category category"></ul>
     <ul class="tails-list"></ul>
 
-    <div class="loader is-hidden"></div>
+    <div
+      class="loader is-hidden"
+      role="status"
+      aria-live="polite"
+      aria-label="Завантаження"
+    ></div>
 
-    
-     <div class="tails-pagination is-hidden">
-  <button class="page-btn prev-btn">
-    <svg width="24" height="24">
-      <use href="./img/icon/icons.svg#icon-arrow_back"></use>
-    </svg>
-  </button>
-  <div class="pagination-numbers"></div>
-  <button class="page-btn next-btn">
-    <svg width="24" height="24">
-      <use href="./img/icon/icons.svg#icon-arrow_forward"></use>
-    </svg>
-  </button>
-  </div>
+    <div class="tails-pagination is-hidden">
+      <button
+        class="page-btn prev-btn"
+        type="button"
+        aria-label="Попередня сторінка"
+      >
+        <svg width="24" height="24">
+          <use href="./img/icon/icons.svg#icon-arrow_back"></use>
+        </svg>
+      </button>
+      <div class="pagination-numbers"></div>
+      <button
+        class="page-btn next-btn"
+        type="button"
+        aria-label="Наступна сторінка"
+      >
+        <svg width="24" height="24">
+          <use href="./img/icon/icons.svg#icon-arrow_forward"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
 
