@@ -2,8 +2,8 @@
     <div class="container header-container">
 
         <nav class="header-nav">
-            <a class="header-logo" href="./index.html">
-                <svg class="header-icon" width="157" height="51">
+            <a class="header-logo" href="./index.html" aria-label="На головну сторінку">
+                <svg class="header-icon" width="157" height="51" aria-hidden="true" focusable="false">
                     <use href="/img/icon/icons.svg#icon-logo"></use>
                 </svg>
             </a>
@@ -15,8 +15,14 @@
                 <li class="header-nav-item"><a class="header-nav-link" href="#history">Історії успіху</a></li>
             </ul>
 
-            <button class="burger-btn" type="button">
-                <svg class="header-burger" width="24" height="24">
+            <button
+                class="burger-btn"
+                type="button"
+                aria-label="Відкрити меню"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+            >
+                <svg class="header-burger" width="24" height="24" aria-hidden="true" focusable="false">
                     <use href="/img/icon/icons.svg#icon-menu"></use>
                 </svg>
             </button>

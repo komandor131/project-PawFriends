@@ -15,7 +15,8 @@ export const writeRevier = reviews => {
     .map(
       ({ rate, _id, description, author }) => `
         <div class="swiper-slide review-slide" id="review-${_id}">
-          <div class="review-rating" aria-label="Оцінка ${Number(rate) || 0} з 5">
+          <div class="review-rating">
+            <span class="visually-hidden">Оцінка ${Number(rate) || 0} з 5</span>
             ${renderRating(Number(rate) || 0)}
           </div>
           <p class="review-card-text">${description}</p>
@@ -34,15 +35,15 @@ export function renderRating(value) {
   let starsHTML = '';
 
   for (let i = 0; i < fullStars; i += 1) {
-    starsHTML += '<i class="fas fa-star"></i>';
+    starsHTML += '<i class="fas fa-star" aria-hidden="true"></i>';
   }
 
   if (hasHalf) {
-    starsHTML += '<i class="fas fa-star-half-alt"></i>';
+    starsHTML += '<i class="fas fa-star-half-alt" aria-hidden="true"></i>';
   }
 
   for (let i = 0; i < emptyStars; i += 1) {
-    starsHTML += '<i class="far fa-star"></i>';
+    starsHTML += '<i class="far fa-star" aria-hidden="true"></i>';
   }
 
   return starsHTML;
