@@ -17,7 +17,7 @@
     <script type="module" crossorigin src="/project-PawFriends/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-PawFriends/assets/vendor-BvRcqlV4.js">
     <link rel="stylesheet" crossorigin href="/project-PawFriends/assets/vendor-DIj_GIDh.css">
-    <link rel="stylesheet" crossorigin href="/project-PawFriends/assets/index-DzjPlTC-.css">
+    <link rel="stylesheet" crossorigin href="/project-PawFriends/assets/index-2S3B0fmH.css">
   </head>
   <body>
     <header class="header" id="header">
@@ -73,22 +73,34 @@
     <ul class="tails-category category"></ul>
     <ul class="tails-list"></ul>
 
-    <div class="loader is-hidden"></div>
+    <div
+      class="loader is-hidden"
+      role="status"
+      aria-live="polite"
+      aria-label="Завантаження"
+    ></div>
 
-    
-     <div class="tails-pagination is-hidden">
-  <button class="page-btn prev-btn">
-    <svg width="24" height="24">
-      <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-arrow_back"></use>
-    </svg>
-  </button>
-  <div class="pagination-numbers"></div>
-  <button class="page-btn next-btn">
-    <svg width="24" height="24">
-      <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-arrow_forward"></use>
-    </svg>
-  </button>
-  </div>
+    <div class="tails-pagination is-hidden">
+      <button
+        class="page-btn prev-btn"
+        type="button"
+        aria-label="Попередня сторінка"
+      >
+        <svg width="24" height="24">
+          <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-arrow_back"></use>
+        </svg>
+      </button>
+      <div class="pagination-numbers"></div>
+      <button
+        class="page-btn next-btn"
+        type="button"
+        aria-label="Наступна сторінка"
+      >
+        <svg width="24" height="24">
+          <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-arrow_forward"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -100,14 +112,20 @@
   <div class="swiper-nav-wrap">
     <div class="swiper-track">
       <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img
-              srcset="/project-PawFriends/assets/woman-and-dog-BCFxZ8og.webp 1x, /project-PawFriends/assets/woman-and-dog@2x-SLGEYpvv.webp 2x"
-              src="/project-PawFriends/assets/woman-and-dog-BCFxZ8og.webp"
-              alt="Slide 1"
-              loading="lazy"
-            />
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <picture>
+              <source
+                srcset="/project-PawFriends/assets/woman-and-dog-BCFxZ8og.webp 1x, /project-PawFriends/assets/woman-and-dog@2x-SLGEYpvv.webp 2x"
+              />
+              <img
+                src="/project-PawFriends/assets/woman-and-dog-BCFxZ8og.webp"
+                alt="Slide 1"
+                loading="lazy"
+                width="2624"
+                height="1506"
+              />
+            </picture>
             <div class="slide-content">
               <p class="slide-text">
                 Все почалося у 2015 році з кількох небайдужих людей та одного
@@ -116,13 +134,25 @@
                 зрадили.
               </p>
             </div>
-          </div>
+          </li>
 
-          <div class="swiper-slide">
+          <li class="swiper-slide">
             <picture>
-              <source media="(min-width: 768px)" srcset="/project-PawFriends/assets/happy-dog-BUBE5QE-.webp 1x, /project-PawFriends/assets/happy-dog@2x-DXLLVNsY.webp 2x">
-              <source media="(max-width: 767px)" srcset="/project-PawFriends/assets/mob-happy-dog1x-CzsOR6zL.webp 1x, /project-PawFriends/assets/mob-happy-dog2x-phBob7q4.webp 2x">
-              <img src="/project-PawFriends/assets/happy-dog-BUBE5QE-.webp" alt="Slide 2" loading="lazy">
+              <source
+                media="(min-width: 768px)"
+                srcset="/project-PawFriends/assets/happy-dog-BUBE5QE-.webp 1x, /project-PawFriends/assets/happy-dog@2x-DXLLVNsY.webp 2x"
+              />
+              <source
+                media="(max-width: 767px)"
+                srcset="/project-PawFriends/assets/mob-happy-dog1x-CzsOR6zL.webp 1x, /project-PawFriends/assets/mob-happy-dog2x-phBob7q4.webp 2x"
+              />
+              <img
+                src="/project-PawFriends/assets/happy-dog-BUBE5QE-.webp"
+                alt="Slide 2"
+                loading="lazy"
+                width="2624"
+                height="1506"
+              />
             </picture>
             <div class="slide-content">
               <p class="slide-text">
@@ -132,15 +162,21 @@
                 новій родині.
               </p>
             </div>
-          </div>
+          </li>
 
-          <div class="swiper-slide">
-            <img
-              srcset="/project-PawFriends/assets/people-with-pets-C1_r1HOU.webp 1x, /project-PawFriends/assets/people-with-pets@2x-C-keQFFj.webp 2x"
-              src="/project-PawFriends/assets/people-with-pets-C1_r1HOU.webp"
-              alt="Slide 3"
-              loading="lazy"
-            />
+          <li class="swiper-slide">
+            <picture>
+              <source
+                srcset="/project-PawFriends/assets/people-with-pets-C1_r1HOU.webp 1x, /project-PawFriends/assets/people-with-pets@2x-C-keQFFj.webp 2x"
+              />
+              <img
+                src="/project-PawFriends/assets/people-with-pets-C1_r1HOU.webp"
+                alt="Slide 3"
+                loading="lazy"
+                width="2624"
+                height="1506"
+              />
+            </picture>
             <div class="slide-content">
               <p class="slide-text">
                 "Хатинка Лапок" — це команда професійних ветеринарів, кінологів
@@ -149,15 +185,21 @@
                 залежить від нас.
               </p>
             </div>
-          </div>
+          </li>
 
-          <div class="swiper-slide">
-            <img
-              srcset="/project-PawFriends/assets/atraction-Ke9SNiOz.webp 1x, /project-PawFriends/assets/atraction@2x-9hmq3XoZ.webp 2x"
-              src="/project-PawFriends/assets/atraction-Ke9SNiOz.webp"
-              alt="Slide 4"
-              loading="lazy"
-            />
+          <li class="swiper-slide">
+            <picture>
+              <source
+                srcset="/project-PawFriends/assets/atraction-Ke9SNiOz.webp 1x, /project-PawFriends/assets/atraction@2x-9hmq3XoZ.webp 2x"
+              />
+              <img
+                src="/project-PawFriends/assets/atraction-Ke9SNiOz.webp"
+                alt="Slide 4"
+                loading="lazy"
+                width="2624"
+                height="1506"
+              />
+            </picture>
             <div class="slide-content">
               <p class="slide-text">
                 Ми створили безпечний та комфортний простір. Кожна тварина
@@ -166,15 +208,21 @@
                 майданчиках.
               </p>
             </div>
-          </div>
+          </li>
 
-          <div class="swiper-slide">
-            <img
-              srcset="/project-PawFriends/assets/happydog-6P7WIqC-.webp 1x, /project-PawFriends/assets/happydog@2x-Dp-roFhf.webp 2x"
-              src="/project-PawFriends/assets/happydog-6P7WIqC-.webp"
-              alt="Slide 5"
-              loading="lazy"
-            />
+          <li class="swiper-slide">
+            <picture>
+              <source
+                srcset="/project-PawFriends/assets/happydog-6P7WIqC-.webp 1x, /project-PawFriends/assets/happydog@2x-Dp-roFhf.webp 2x"
+              />
+              <img
+                src="/project-PawFriends/assets/happydog-6P7WIqC-.webp"
+                alt="Slide 5"
+                loading="lazy"
+                width="2624"
+                height="1506"
+              />
+            </picture>
             <div class="slide-content">
               <p class="slide-text">
                 Ваша допомога — безцінна. Ви можете взяти тваринку додому, стати
@@ -183,16 +231,24 @@
                 безпритульних тварин.
               </p>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
 
-      <button class="swiper-button-prev">
+      <button
+        class="swiper-button-prev"
+        type="button"
+        aria-label="Попередній слайд"
+      >
         <svg class="sprite" width="24" height="24">
           <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-arrow_back"></use>
         </svg>
       </button>
-      <button class="swiper-button-next">
+      <button
+        class="swiper-button-next"
+        type="button"
+        aria-label="Наступний слайд"
+      >
         <svg class="sprite" width="24" height="24">
           <use href="/project-PawFriends/assets/icons-ZB-29r7f.svg#icon-arrow_forward"></use>
         </svg>
@@ -476,7 +532,6 @@
     <!-- Копірайт -->
     <p class="footer__copy">© 2026 Хатинка лапок. Всі права захищені.</p>
   </div>
-   </div>
 </footer>
 
     <div class="burger-menu">
@@ -527,6 +582,8 @@
           src="/project-PawFriends/assets/cat-dog-CL-ZKClv.webp"
           alt="Фото тваринки"
           class="animal-image"
+          width="2880"
+          height="1800"
         />
       </div>
 
